@@ -151,6 +151,7 @@
                     <a href="#home" class="nav-link text-gray-800 font-poppins text-md hover:text-orange-500 mx-2 transition-colors dark:text-lightwhite">Home</a>
                     <a href="#experiences" class="nav-link text-gray-800 font-poppins text-md hover:text-orange-500 mx-2 transition-colors dark:text-lightwhite">Experiences</a>
                     <a href="#projects" class="nav-link text-gray-800 font-poppins text-md hover:text-orange-500 mx-2 transition-colors dark:text-lightwhite">Projects</a>
+                    <a href="#testimonials" class="nav-link text-gray-800 font-poppins text-md hover:text-orange-500 mx-2 transition-colors dark:text-lightwhite">Testimonials</a>
                     <a href="#contact" class="nav-link text-gray-800 font-poppins text-md hover:text-orange-500 mx-2 transition-colors dark:text-lightwhite">Contact</a>
                     <button id="theme-toggle" type="button" class="w-10 h-10 rounded-full border border-zinc-300 text-zinc-700 hover:border-orange-500 hover:text-orange-500 transition-all dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-orange-500 dark:hover:text-orange-500" aria-label="Toggle dark mode">
                         <i id="theme-toggle-icon" class="fa-solid fa-moon"></i>
@@ -165,6 +166,7 @@
                     <a href="#home" class="nav-link text-gray-800 font-poppins text-base hover:text-orange-500 transition-colors dark:text-lightwhite">Home</a>
                     <a href="#experiences" class="nav-link text-gray-800 font-poppins text-base hover:text-orange-500 transition-colors dark:text-lightwhite">Experiences</a>
                     <a href="#projects" class="nav-link text-gray-800 font-poppins text-base hover:text-orange-500 transition-colors dark:text-lightwhite">Projects</a>
+                    <a href="#testimonials" class="nav-link text-gray-800 font-poppins text-base hover:text-orange-500 transition-colors dark:text-lightwhite">Testimonials</a>
                     <a href="#contact" class="nav-link text-gray-800 font-poppins text-base hover:text-orange-500 transition-colors dark:text-lightwhite">Contact</a>
                     <button id="mobile-theme-toggle" type="button" class="mt-1 flex w-full items-center justify-between rounded-lg border border-zinc-300 px-4 py-3 text-left text-zinc-700 hover:border-orange-500 hover:text-orange-500 transition-all dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-orange-500 dark:hover:text-orange-500" aria-label="Toggle dark mode">
                         <span class="font-poppins text-base">Theme</span>
@@ -192,7 +194,7 @@
             <div class="absolute left-0 -bottom-10 md:-bottom-10 flex w-full flex-col items-center gap-8 md:gap-12 px-4">
                 <span class="text-xl text-gray-800 tracking-wide font-medium transition-colors dark:text-zinc-200">EXPERIENCED WITH</span>
                 <div class="relative w-full max-w-4xl overflow-hidden" id="skills-container">
-                    <div class="flex gap-10" id="skills">
+                    <div class="flex items-center gap-10" id="skills">
                         <img src="images/html.png" alt="HTML" class="h-10 inline-block grayscale hover:grayscale-0 dark:grayscale-0 transition-all">
                         <img src="images/css.png" alt="CSS" class="h-10 inline-block grayscale hover:grayscale-0 dark:grayscale-0 transition-all">
                         <img src="images/js.png" alt="JavaScript" class="h-10 inline-block grayscale hover:grayscale-0 dark:grayscale-0 transition-all">
@@ -202,7 +204,7 @@
                         <img src="images/mysql.png" alt="MySQL" class="h-10 inline-block grayscale hover:grayscale-0 dark:grayscale-0 transition-all">
                         <img src="images/tailwindcss.png" alt="Tailwind CSS" class="h-10 inline-block grayscale hover:grayscale-0 dark:grayscale-0 transition-all">
                         <img src="images/supabase.png" alt="Supabase" class="h-10 inline-block grayscale hover:grayscale-0 dark:grayscale-0 transition-all">
-                        <img src="images/laravel.webp" alt="Laravel" class="h-20 inline-block grayscale hover:grayscale-0 dark:grayscale-0 transition-all">
+                        <img src="images/laravel.webp" alt="Laravel" class="h-10 inline-block grayscale hover:grayscale-0 dark:grayscale-0 transition-all">
                         <img src="images/bootstrap.png" alt="Bootstrap" class="h-10 inline-block grayscale hover:grayscale-0 dark:grayscale-0 transition-all">
 
                         <!-- duplicate -->
@@ -215,7 +217,7 @@
                         <img src="images/mysql.png" alt="" aria-hidden="true" class="h-10 inline-block grayscale hover:grayscale-0 dark:grayscale-0 transition-all">
                         <img src="images/tailwindcss.png" alt="" aria-hidden="true" class="h-10 inline-block grayscale hover:grayscale-0 dark:grayscale-0 transition-all">
                         <img src="images/supabase.png" alt="" aria-hidden="true" class="h-10 inline-block grayscale hover:grayscale-0 dark:grayscale-0 transition-all">
-                        <img src="images/laravel.webp" alt="" aria-hidden="true" class="h-20 inline-block grayscale hover:grayscale-0 dark:grayscale-0 transition-all">
+                        <img src="images/laravel.webp" alt="" aria-hidden="true" class="h-10 inline-block grayscale hover:grayscale-0 dark:grayscale-0 transition-all">
                         <img src="images/bootstrap.png" alt="" aria-hidden="true" class="h-10 inline-block grayscale hover:grayscale-0 dark:grayscale-0 transition-all">
                     </div>
                 </div>
@@ -458,6 +460,52 @@
                         View all projects
                         <i class="fa-solid fa-arrow-right text-sm"></i>
                     </a>
+                </div>
+            </div>
+        </section>
+        <section id="testimonials" class="px-4 py-28">
+            <div class="mx-auto max-w-6xl">
+                <div class="mb-14 text-center">
+                    <span class="text-3xl text-gray-800 transition-colors dark:text-zinc-200">Testimonials</span>
+                    <div class="mx-auto mt-2 h-0.5 w-24 bg-orange-500"></div>
+                </div>
+
+                <div class="grid gap-7 md:grid-cols-2">
+                    <article class="rounded-lg border border-zinc-200 bg-lightwhite p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-orange-300 hover:shadow-xl hover:shadow-orange-500/10 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-orange-500/60">
+                        <div class="mb-5 flex items-center gap-2 text-orange-500">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-sm leading-8 text-zinc-600 dark:text-zinc-300">Jkein created a clean and elegant website that matched the look we wanted for our salon. The services, gallery, and contact details are easy for clients to browse, and the page feels professional on both phone and desktop.</p>
+                        <div class="mt-7 flex items-center gap-4">
+                            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-orange-100 text-lg font-bold text-orange-600 dark:bg-orange-500/20 dark:text-orange-400">AD</div>
+                            <div>
+                                <h3 class="font-semibold text-zinc-900 dark:text-lightwhite">Al Drian</h3>
+                                <p class="text-sm text-zinc-500 dark:text-zinc-400">Owner, Art & Beauty Hair Studio</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="rounded-lg border border-zinc-200 bg-lightwhite p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-orange-300 hover:shadow-xl hover:shadow-orange-500/10 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-orange-500/60">
+                        <div class="mb-5 flex items-center gap-2 text-orange-500">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-sm leading-8 text-zinc-600 dark:text-zinc-300">The Little Joys landing page turned out exactly how we imagined. The design is clean, easy to navigate, and makes exploring Maasin's attractions feel simple and enjoyable. We're really happy with how it represents our project.</p>
+                        <div class="mt-7 flex items-center gap-4">
+                            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-orange-100 text-lg font-bold text-orange-600 dark:bg-orange-500/20 dark:text-orange-400">CM</div>
+                            <div>
+                                <h3 class="font-semibold text-zinc-900 dark:text-lightwhite">CM Students</h3>
+                                <p class="text-sm text-zinc-500 dark:text-zinc-400">Little Joys Project Team</p>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>

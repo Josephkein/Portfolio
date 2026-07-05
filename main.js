@@ -113,6 +113,8 @@ const texts = [
             '#projects .mb-14',
             '#projects article',
             '#projects .mt-12',
+            '#testimonials .mb-14',
+            '#testimonials article',
             '#contact .text-center',
             '#contact .flex-1',
             '#contact .input',
@@ -150,18 +152,20 @@ const texts = [
         });
     }
 
-    function showExtraProjects(event) {
+    function toggleExtraProjects(event) {
         event.preventDefault();
+        const isShowingAllProjects = viewAllProjectsButton.getAttribute('aria-expanded') === 'true';
 
         extraProjects.forEach((project, index) => {
-            project.classList.remove('hidden');
-            project.classList.add('is-visible');
+            project.classList.toggle('hidden', isShowingAllProjects);
+            project.classList.toggle('is-visible', !isShowingAllProjects);
             project.style.transitionDelay = `${Math.min(index * 70, 210)}ms`;
         });
 
-        viewAllProjectsButton.innerHTML = 'All projects shown <i class="fa-solid fa-check text-sm"></i>';
-        viewAllProjectsButton.setAttribute('aria-disabled', 'true');
-        viewAllProjectsButton.classList.add('pointer-events-none', 'bg-orange-500', 'text-lightwhite');
+        viewAllProjectsButton.setAttribute('aria-expanded', (!isShowingAllProjects).toString());
+        viewAllProjectsButton.innerHTML = isShowingAllProjects
+            ? 'View all projects <i class="fa-solid fa-arrow-right text-sm"></i>'
+            : 'View less <i class="fa-solid fa-arrow-up text-sm"></i>';
     }
 
     themeToggle.addEventListener('click', () => {
@@ -180,7 +184,8 @@ const texts = [
         setMobileMenuOpen(mobileMenu.classList.contains('hidden'));
     });
 
-    viewAllProjectsButton.addEventListener('click', showExtraProjects);
+    viewAllProjectsButton.setAttribute('aria-expanded', 'false');
+    viewAllProjectsButton.addEventListener('click', toggleExtraProjects);
 
     // Close menu when clicking on nav links
     navLinks.forEach((link) => {
