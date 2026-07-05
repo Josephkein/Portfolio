@@ -53,6 +53,8 @@ const texts = [
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
     const mobileThemeToggleIcon = document.getElementById('mobile-theme-toggle-icon');
+    const viewAllProjectsButton = document.getElementById('view-all-projects');
+    const extraProjects = document.querySelectorAll('.extra-project');
 
     function updateHeaderShadow() {
         const hasScrolled = window.scrollY > 20;
@@ -76,6 +78,13 @@ const texts = [
         mobileMenuToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
         mobileMenuIcon.classList.toggle('fa-bars', !isOpen);
         mobileMenuIcon.classList.toggle('fa-xmark', isOpen);
+        
+        // Smooth height animation
+        if (isOpen) {
+            mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+        } else {
+            mobileMenu.style.maxHeight = '0';
+        }
     }
 
     function updateActiveNavLink() {
@@ -141,6 +150,20 @@ const texts = [
         });
     }
 
+    function showExtraProjects(event) {
+        event.preventDefault();
+
+        extraProjects.forEach((project, index) => {
+            project.classList.remove('hidden');
+            project.classList.add('is-visible');
+            project.style.transitionDelay = `${Math.min(index * 70, 210)}ms`;
+        });
+
+        viewAllProjectsButton.innerHTML = 'All projects shown <i class="fa-solid fa-check text-sm"></i>';
+        viewAllProjectsButton.setAttribute('aria-disabled', 'true');
+        viewAllProjectsButton.classList.add('pointer-events-none', 'bg-orange-500', 'text-lightwhite');
+    }
+
     themeToggle.addEventListener('click', () => {
         document.documentElement.classList.toggle('dark');
         localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
@@ -157,10 +180,31 @@ const texts = [
         setMobileMenuOpen(mobileMenu.classList.contains('hidden'));
     });
 
+    viewAllProjectsButton.addEventListener('click', showExtraProjects);
+
+    // Close menu when clicking on nav links
     navLinks.forEach((link) => {
         link.addEventListener('click', () => {
             setMobileMenuOpen(false);
         });
+    });
+
+    // Close menu when clicking outside of it
+    document.addEventListener('click', (e) => {
+        const isMenuOpen = !mobileMenu.classList.contains('hidden');
+        const isClickInsideMenu = mobileMenu.contains(e.target);
+        const isClickOnToggle = mobileMenuToggle.contains(e.target);
+        
+        if (isMenuOpen && !isClickInsideMenu && !isClickOnToggle) {
+            setMobileMenuOpen(false);
+        }
+    });
+
+    // Close menu when pressing Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+            setMobileMenuOpen(false);
+        }
     });
 
     updateThemeIcon();
