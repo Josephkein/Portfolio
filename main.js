@@ -55,6 +55,10 @@ const texts = [
     const mobileThemeToggleIcon = document.getElementById('mobile-theme-toggle-icon');
     const viewAllProjectsButton = document.getElementById('view-all-projects');
     const extraProjects = document.querySelectorAll('.extra-project');
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    const testimonialPrevButton = document.getElementById('testimonial-prev');
+    const testimonialNextButton = document.getElementById('testimonial-next');
+    let testimonialIndex = 0;
 
     function updateHeaderShadow() {
         const hasScrolled = window.scrollY > 20;
@@ -168,6 +172,27 @@ const texts = [
             : 'View less <i class="fa-solid fa-arrow-up text-sm"></i>';
     }
 
+    function getVisibleTestimonialCount() {
+        return window.innerWidth >= 768 ? 2 : 1;
+    }
+
+    function updateTestimonials() {
+        const visibleCount = getVisibleTestimonialCount();
+
+        testimonialCards.forEach((card, index) => {
+            const offset = (index - testimonialIndex + testimonialCards.length) % testimonialCards.length;
+            const isVisible = offset < visibleCount;
+            card.classList.toggle('hidden', !isVisible);
+            card.classList.toggle('is-visible', isVisible);
+            card.style.transitionDelay = isVisible ? `${offset * 70}ms` : '0ms';
+        });
+    }
+
+    function showTestimonials(direction) {
+        testimonialIndex = (testimonialIndex + direction + testimonialCards.length) % testimonialCards.length;
+        updateTestimonials();
+    }
+
     themeToggle.addEventListener('click', () => {
         document.documentElement.classList.toggle('dark');
         localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
@@ -186,6 +211,12 @@ const texts = [
 
     viewAllProjectsButton.setAttribute('aria-expanded', 'false');
     viewAllProjectsButton.addEventListener('click', toggleExtraProjects);
+
+    if (testimonialCards.length && testimonialPrevButton && testimonialNextButton) {
+        updateTestimonials();
+        testimonialPrevButton.addEventListener('click', () => showTestimonials(-1));
+        testimonialNextButton.addEventListener('click', () => showTestimonials(1));
+    }
 
     // Close menu when clicking on nav links
     navLinks.forEach((link) => {
@@ -220,6 +251,7 @@ const texts = [
     window.addEventListener('scroll', updateActiveNavLink);
     window.addEventListener('resize', () => {
         updateActiveNavLink();
+        updateTestimonials();
 
         if (window.innerWidth >= 768) {
             setMobileMenuOpen(false);
