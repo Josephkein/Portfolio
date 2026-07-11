@@ -1,3 +1,27 @@
+emailjs.init({
+    publicKey: "nO3GKXDr3IpAQlca_"
+});
+
+const form = document.getElementById("contactForm");
+
+form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm(
+        "service_6d4noue",
+        "template_jbzxwhn",
+        this
+    )
+    .then(() => {
+        alert("Message sent!");
+        form.reset();
+    })
+    .catch((err) => {
+        console.error(err);
+        alert("Something went wrong.");
+    });
+});
+
 const texts = [
         "Jr. Full Stack Developer",
         "PHP Developer",

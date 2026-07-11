@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Birthstone:wght@400&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
     <script>
     tailwind.config = {
@@ -454,7 +455,7 @@
                     </article>
 
                     <article class="extra-project hidden group overflow-hidden rounded-lg border border-zinc-200 bg-lightwhite shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-orange-300 hover:shadow-xl hover:shadow-orange-500/10 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-orange-500/60">
-                        <div class="flex h-44 items-center justify-center bg-gradient-to-br from-slate-100 via-lightwhite to-sky-100 transition-transform duration-300 group-hover:scale-105 dark:from-slate-500/20 dark:via-zinc-900 dark:to-sky-500/20">
+                        <div class="flex h-44 items-center jusxtify-center bg-gradient-to-br from-slate-100 via-lightwhite to-sky-100 transition-transform duration-300 group-hover:scale-105 dark:from-slate-500/20 dark:via-zinc-900 dark:to-sky-500/20">
                             <img src="images/printing.png" alt="Ystilow Printing Services" class="h-full object-cover">
                         </div>
                         <div class="p-6">
@@ -608,23 +609,23 @@
                         </div>
                     </div>
                     <div class="flex-1 flex justify-center lg:justify-end h-full">
-                        <form class="flex w-full max-w-sm flex-col gap-6">
+                        <form class="flex w-full max-w-sm flex-col gap-6" id="contactForm">
                             <div class="input">
                                 <label for="name" class="block text-sm font-medium text-gray-700 mb-1 dark:text-zinc-300">Your Name <span class="text-red-500">*</span></label>
-                                <input type="text" id="name" placeholder="John Doe" class="w-full rounded-lg bg-lightwhite border border-zinc-300 px-4 py-3 focus:outline-none focus:ring-1 focus:ring-orange-500 focus:shadow focus:shadow-orange-500/50 transition-all dark:border-zinc-700 dark:bg-zinc-900 dark:text-lightwhite">
+                                <input type="text" id="name" name="name" placeholder="John Doe" class="w-full rounded-lg bg-lightwhite border border-zinc-300 px-4 py-3 focus:outline-none focus:ring-1 focus:ring-orange-500 focus:shadow focus:shadow-orange-500/50 transition-all dark:border-zinc-700 dark:bg-zinc-900 dark:text-lightwhite">
                             </div>
                             <div class="input">
                                 <label for="company" class="block text-sm font-medium text-gray-700 mb-1 dark:text-zinc-300">Company (Optional)</label>
-                                <input type="text" id="company" placeholder="Company Name" class="w-full rounded-lg bg-lightwhite border border-zinc-300 px-4 py-3 focus:outline-none focus:ring-1 focus:ring-orange-500 focus:shadow focus:shadow-orange-500/50 transition-all dark:border-zinc-700 dark:bg-zinc-900 dark:text-lightwhite">
+                                <input type="text" id="company" name="company" placeholder="Company Name" class="w-full rounded-lg bg-lightwhite border border-zinc-300 px-4 py-3 focus:outline-none focus:ring-1 focus:ring-orange-500 focus:shadow focus:shadow-orange-500/50 transition-all dark:border-zinc-700 dark:bg-zinc-900 dark:text-lightwhite">
                             </div>
                             <div class="input">
                                 <label for="email" class="block text-sm font-medium text-gray-700 mb-1 dark:text-zinc-300">Your Email <span class="text-red-500">*</span></label>
-                                <input type="email" id="email" placeholder="example@email.com" class="w-full rounded-lg bg-lightwhite border border-zinc-300 px-4 py-3 focus:outline-none focus:ring-1 focus:ring-orange-500 focus:shadow focus:shadow-orange-500/50 transition-all dark:border-zinc-700 dark:bg-zinc-900 dark:text-lightwhite">
+                                <input type="email" id="email" name="email" placeholder="example@email.com" class="w-full rounded-lg bg-lightwhite border border-zinc-300 px-4 py-3 focus:outline-none focus:ring-1 focus:ring-orange-500 focus:shadow focus:shadow-orange-500/50 transition-all dark:border-zinc-700 dark:bg-zinc-900 dark:text-lightwhite">
                             </div>
                         
                             <div class="input">
                                 <label for="message" class="block text-sm font-medium text-gray-700 mb-1 dark:text-zinc-300">Your Message <span class="text-red-500">*</span></label>
-                                <textarea id="message" placeholder="" class="w-full rounded-lg bg-lightwhite border border-zinc-300 px-4 py-3 h-32 resize-none focus:outline-none focus:ring-1 focus:ring-orange-500 focus:shadow focus:shadow-orange-500/50 transition-all dark:border-zinc-700 dark:bg-zinc-900 dark:text-lightwhite"></textarea>
+                                <textarea id="message" name="message" placeholder="" class="w-full rounded-lg bg-lightwhite border border-zinc-300 px-4 py-3 h-32 resize-none focus:outline-none focus:ring-1 focus:ring-orange-500 focus:shadow focus:shadow-orange-500/50 transition-all dark:border-zinc-700 dark:bg-zinc-900 dark:text-lightwhite"></textarea>
                             </div>
                             
                             <button type="submit" class="border-2 w-full border-gray-800 px-4 py-2 rounded-full font-medium hover:shadow-lg transition-all">Send Message</button>
